@@ -1,0 +1,30 @@
+char incoming_value;
+char incoming_val;
+void setup(){
+serial.begins(9600);
+pinMode(13, OUTPUT);
+pinMode(12, OUTPUT);
+}
+
+void loop(){
+  if(Serial.available()>0){
+    incoming_value = Serial.read();
+    incoming_val = Serial.read();
+    if(incoming_value ==1){
+        digitalWrite(13, HIGH);
+        delay(3000);
+       }
+    else if(incoming_value==0){
+        digitalWrite(13, LOW);
+        delay(1000);
+       }
+    if(incoming_val ==2){
+        digitalWrite(12, HIGH);
+        delay(5000);
+       }
+    else if(incoming_value==3){
+        digitalWrite(12, LOW);
+        delay(1000);
+       }
+     }  
+} 
